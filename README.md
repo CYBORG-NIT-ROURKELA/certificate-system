@@ -12,9 +12,8 @@ Certificate system for the Cyborg Members
 
 ---
 2. RULLS FOR PULL REQUEST (PR) RAISE
-* **DO NOT PUSH ANYTHING DIRECTLY TO MASTER BRANCH**
 * Use proper commit message describing the tasks performed in the commit.
-* Treat `dev` branch as your master branch, i.e. all your PRs should use `dev` as the target branch. e.g. `git push origin YOUR_BRANCH_NAME` and then use `dev` as the target branch while creating PRs.
+* Treat `dev` branch as your master branch, i.e. all your PRs should use `dev` as the target branch. e.g. `git push origin YOUR_BRANCH_NAME` and then use `master` as the target branch while creating PRs.
 
 ---
 3. PROJECT SETUP (FOR DEVELOPMENT)
