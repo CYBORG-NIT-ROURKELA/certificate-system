@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+
+    <title>Register|Login</title>
+</head>
+
+<body>
+    <div class="mb-5">
+        <nav>
+            <div class="nav nav-tabs d-flex justify-content-around" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab"
+                    aria-controls="nav-home" aria-selected="true">Login</a>
+                <a class="nav-item nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Signup</a>
+            </div>
+        </nav>
+        <div class="tab-content mt-5" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                            <div class="card card-login my-5">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Log In</h5>
+                                    <form class="form-signin" onsubmit="return validateLoginForm()">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Email address"
+                                                autofocus id="login-email">
+                                            <span class="text-danger font-weight-bold" id="login-email-alert">
+                                                <!-- alerts innerHTML goes here -->
+                                            </span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password"
+                                                id="login-password">
+                                            <span class="text-danger font-weight-bold" id="login-password-alert">
+                                                <!-- alerts innerHTML goes here -->
+                                            </span>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox mb-3">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                            <label class="custom-control-label" for="customCheck1">Remember
+                                                password</label>
+                                        </div>
+
+                                        <button class="btn btn-lg btn-primary btn-block text-uppercase"
+                                            type="submit">Sign in</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                            <div class="card card-signup flex-row mt-0">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Sign Up</h5>
+                                    <form class="form-signup" onsubmit="return validateSignupForm()">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="First name"
+                                                        id="firstname">
+                                                    <span class="text-danger font-weight-bold" id="firstname-alert">
+                                                        <!-- alerts innerHTML goes here -->
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Last name"
+                                                        id="lastname">
+                                                    <span class="text-danger font-weight-bold" id="lastname-alert">
+                                                        <!-- alerts innerHTML goes here -->
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" name="Roll_Number" class="form-control"
+                                                placeholder="Roll Number" id='roll-number'>
+                                            <span class="text-danger font-weight-bold" id="roll-number-alert">
+                                                <!-- alerts innerHTML goes here -->
+                                            </span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Phone Number"
+                                                id='phone-number'>
+                                            <span class="text-danger font-weight-bold" id="phone-number-alert">
+                                                <!-- alerts innerHTML goes here -->
+                                            </span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Email address"
+                                                id="signup-email">
+                                            <span class="text-danger font-weight-bold" id="signup-email-alert">
+                                                <!-- alerts innerHTML goes here -->
+                                            </span>
+                                        </div>
+
+                                        <div class="form-group ">
+                                            <input type="text " class="form-control" placeholder="Adress" id='adress'>
+                                            <span class="text-danger font-weight-bold" id="adress-alert">
+                                                <!-- alerts innerHTML goes here -->
+                                            </span>
+                                        </div>
+
+                                        <div class="form-group ">
+                                            <input type="text" class="form-control" placeholder="City" id='city'>
+                                            <span class="text-danger font-weight-bold" id="city-alert">
+                                                <!-- alerts innerHTML goes here -->
+                                            </span>
+                                        </div>
+
+                                        <div class="row ">
+                                            <div class="col-lg-6 ">
+                                                <div class="form-group ">
+                                                    <input type="text " class="form-control " placeholder="State "
+                                                        id="state">
+                                                    <span class="text-danger font-weight-bold" id="state-alert">
+                                                        <!-- alerts innerHTML goes here -->
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 ">
+                                                <div class="form-group ">
+                                                    <input type="text " class="form-control " placeholder=" PIN Code "
+                                                        id="pincode">
+                                                    <span class="text-danger font-weight-bold" id="pincode-alert">
+                                                        <!-- alerts innerHTML goes here -->
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class=" form-group ">
+                                            <input type="password" class="form-control" placeholder="Password"
+                                                id='signup-password'>
+                                            <span class="text-danger font-weight-bold" id="signup-password-alert">
+                                                <!-- alerts innerHTML goes here -->
+                                            </span>
+                                        </div>
+
+                                        <div class=" form-group ">
+                                            <input type="password" class="form-control" placeholder=" Confirm Password "
+                                                id='confirm-password'>
+                                            <span class="text-danger font-weight-bold"
+                                                id="signup-confirm-password-alert">
+                                                <!-- alerts innerHTML goes here -->
+                                            </span>
+                                        </div>
+
+                                        <button class=" btn btn-lg btn-primary btn-block text-uppercase "
+                                            type="submit ">Sign Up</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src=" https://code.jquery.com/jquery-3.5.1.slim.min.js "
+            integrity=" sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj "
+            crossorigin=" anonymous "></script>
+        <script src=" https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js "
+            integrity=" sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo "
+            crossorigin=" anonymous "></script>
+        <script src=" https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js "
+            integrity=" sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI "
+            crossorigin=" anonymous "></script>
+        <script src=" index.js "></script>
+</body>
+
+</html>
