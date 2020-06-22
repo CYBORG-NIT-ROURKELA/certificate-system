@@ -1,10 +1,12 @@
 <?php
 session_start();
 include 'db.php';
-$loginEmail=$_POST['loginEmail'];
-$loginPassword=$_POST['loginPassword'];
 // echo $email;
 if($_SERVER["REQUEST_METHOD"] === "POST" ){
+
+    $loginEmail=$_POST['loginEmail'];
+    $loginPassword=$_POST['loginPassword'];
+
   	  if(!empty($loginEmail) && !empty($loginPassword))
    	 {
 		  $loginPassword=hash('sha512', $loginPassword);
