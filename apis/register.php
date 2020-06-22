@@ -153,8 +153,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" )
 				  if ($query) {
 
 					$query = mysqli_query($conn, 'SELECT email FROM users WHERE email="'.$email.'"');
-					$admin_id = mysqli_fetch_array($query)["email"];
-					echo(json_encode(array('status'=>'success','message'=>$admin_id)));
+					$email = mysqli_fetch_array($query)["email"];
+					echo(json_encode(array('status'=>'success','message'=>$email)));
 					
 				  }
 				}
