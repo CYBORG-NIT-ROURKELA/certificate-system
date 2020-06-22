@@ -72,7 +72,7 @@ const validateSignupForm = () => {
         });
         return false;
     }
-    if (!firstName.value.match(/^[A-Za-z]+$/)) {
+    if (!firstName.value.match(/^[a-zA-Z][a-zA-Z ]+$/)) {
         document.getElementById("firstname-alert").innerHTML =
             "**should contain only alphabets";
         firstName.addEventListener("click", () => {
@@ -104,7 +104,7 @@ const validateSignupForm = () => {
         });
         return false;
     }
-    if (!lastName.value.match(/^[A-Za-z]+$/)) {
+    if (!lastName.value.match(/^[a-zA-Z][a-zA-Z ]+$/)) {
         document.getElementById("lastname-alert").innerHTML =
             "**should contain only alphabets";
         lastName.addEventListener("click", () => {
@@ -115,7 +115,7 @@ const validateSignupForm = () => {
         return false;
     }
     // ROLL NUMBER VALIDATIONSS
-    const rollMatch = /^\d{3}[a-z]{2}\d{4}$/;
+    const rollMatch = /^\d{3}[a-z]{2}\d{4}$/i;
     if (rollNumber.value == "") {
         document.getElementById("roll-number-alert").innerHTML =
             "**roll number cannot be empty";
@@ -255,9 +255,9 @@ const validateSignupForm = () => {
         });
         return false;
     }
-    if (signupPassword.value.length < 8) {
+    if (signupPassword.value.length < 7) {
         document.getElementById("signup-password-alert").innerHTML =
-            "**password length must be atleast 8 characters";
+            "**password length must be atleast 6 characters";
         signupPassword.addEventListener("click", () => {
             setInterval(() => {
                 document.getElementById("signup-password-alert").innerHTML = "";

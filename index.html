@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="style.css" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
 
     <title>Register|Login</title>
 </head>
@@ -18,10 +17,8 @@
     <div class="mb-5">
         <nav>
             <div class="nav nav-tabs d-flex justify-content-around" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab"
-                    aria-controls="nav-home" aria-selected="true">Login</a>
-                <a class="nav-item nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab"
-                    aria-controls="nav-profile" aria-selected="false">Signup</a>
+                <a class="nav-item nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="nav-home" aria-selected="true">Login</a>
+                <a class="nav-item nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab" aria-controls="nav-profile" aria-selected="false">Signup</a>
             </div>
         </nav>
         <div class="tab-content mt-5" id="nav-tabContent">
@@ -32,18 +29,16 @@
                             <div class="card card-login my-5">
                                 <div class="card-body">
                                     <h5 class="card-title text-center">Log In</h5>
-                                    <form class="form-signin" onsubmit="return validateLoginForm()">
+                                    <form class="form-signin" onsubmit="return validateLoginForm()" id="login-form">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Email address"
-                                                autofocus id="login-email">
+                                            <input type="text" class="form-control" placeholder="Email address" autofocus id="login-email" name="login-email">
                                             <span class="text-danger font-weight-bold" id="login-email-alert">
                                                 <!-- alerts innerHTML goes here -->
                                             </span>
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password"
-                                                id="login-password">
+                                            <input type="password" class="form-control" placeholder="Password" id="login-password" name="login-password">
                                             <span class="text-danger font-weight-bold" id="login-password-alert">
                                                 <!-- alerts innerHTML goes here -->
                                             </span>
@@ -55,8 +50,7 @@
                                                 password</label>
                                         </div>
 
-                                        <button class="btn btn-lg btn-primary btn-block text-uppercase"
-                                            type="submit">Sign in</button>
+                                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
                                     </form>
                                 </div>
                             </div>
@@ -71,12 +65,11 @@
                             <div class="card card-signup flex-row mt-0">
                                 <div class="card-body">
                                     <h5 class="card-title text-center">Sign Up</h5>
-                                    <form class="form-signup" onsubmit="return validateSignupForm()">
+                                    <form class="form-signup" onsubmit="return validateSignupForm()" id="signup-form">
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="First name"
-                                                        id="firstname">
+                                                    <input type="text" class="form-control" placeholder="First name" id="firstname">
                                                     <span class="text-danger font-weight-bold" id="firstname-alert">
                                                         <!-- alerts innerHTML goes here -->
                                                     </span>
@@ -85,8 +78,7 @@
 
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Last name"
-                                                        id="lastname">
+                                                    <input type="text" class="form-control" placeholder="Last name" id="lastname">
                                                     <span class="text-danger font-weight-bold" id="lastname-alert">
                                                         <!-- alerts innerHTML goes here -->
                                                     </span>
@@ -95,24 +87,21 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="text" name="Roll_Number" class="form-control"
-                                                placeholder="Roll Number" id='roll-number'>
+                                            <input type="text" name="Roll_Number" class="form-control" placeholder="Roll Number" id='roll-number'>
                                             <span class="text-danger font-weight-bold" id="roll-number-alert">
                                                 <!-- alerts innerHTML goes here -->
                                             </span>
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Phone Number"
-                                                id='phone-number'>
+                                            <input type="text" class="form-control" placeholder="Phone Number" id='phone-number' name="phone-number" )>
                                             <span class="text-danger font-weight-bold" id="phone-number-alert">
                                                 <!-- alerts innerHTML goes here -->
                                             </span>
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Email address"
-                                                id="signup-email">
+                                            <input type="text" class="form-control" placeholder="Email address" id="signup-email">
                                             <span class="text-danger font-weight-bold" id="signup-email-alert">
                                                 <!-- alerts innerHTML goes here -->
                                             </span>
@@ -135,8 +124,7 @@
                                         <div class="row ">
                                             <div class="col-lg-6 ">
                                                 <div class="form-group ">
-                                                    <input type="text " class="form-control " placeholder="State "
-                                                        id="state">
+                                                    <input type="text " class="form-control " placeholder="State " id="state">
                                                     <span class="text-danger font-weight-bold" id="state-alert">
                                                         <!-- alerts innerHTML goes here -->
                                                     </span>
@@ -145,8 +133,7 @@
 
                                             <div class="col-lg-6 ">
                                                 <div class="form-group ">
-                                                    <input type="text " class="form-control " placeholder=" PIN Code "
-                                                        id="pincode">
+                                                    <input type="text " class="form-control " placeholder=" PIN Code " id="pincode">
                                                     <span class="text-danger font-weight-bold" id="pincode-alert">
                                                         <!-- alerts innerHTML goes here -->
                                                     </span>
@@ -155,24 +142,20 @@
                                         </div>
 
                                         <div class=" form-group ">
-                                            <input type="password" class="form-control" placeholder="Password"
-                                                id='signup-password'>
+                                            <input type="password" class="form-control" placeholder="Password" id='signup-password'>
                                             <span class="text-danger font-weight-bold" id="signup-password-alert">
                                                 <!-- alerts innerHTML goes here -->
                                             </span>
                                         </div>
 
                                         <div class=" form-group ">
-                                            <input type="password" class="form-control" placeholder=" Confirm Password "
-                                                id='confirm-password'>
-                                            <span class="text-danger font-weight-bold"
-                                                id="signup-confirm-password-alert">
+                                            <input type="password" class="form-control" placeholder=" Confirm Password " id='confirm-password'>
+                                            <span class="text-danger font-weight-bold" id="signup-confirm-password-alert">
                                                 <!-- alerts innerHTML goes here -->
                                             </span>
                                         </div>
 
-                                        <button class=" btn btn-lg btn-primary btn-block text-uppercase "
-                                            type="submit ">Sign Up</button>
+                                        <button class=" btn btn-lg btn-primary btn-block text-uppercase " type="submit " id="signup-submit">Sign Up</button>
                                     </form>
                                 </div>
                             </div>
@@ -184,16 +167,102 @@
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src=" https://code.jquery.com/jquery-3.5.1.slim.min.js "
-            integrity=" sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj "
-            crossorigin=" anonymous "></script>
-        <script src=" https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js "
-            integrity=" sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo "
-            crossorigin=" anonymous "></script>
-        <script src=" https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js "
-            integrity=" sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI "
-            crossorigin=" anonymous "></script>
+        <script src=" https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity=" sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin=" anonymous "></script>
+        <script src=" https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity=" sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin=" anonymous "></script>
+        <script src=" https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity=" sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin=" anonymous "></script>
         <script src=" index.js "></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
+        </script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#signup-form").on('submit', (function(e) {
+                    e.preventDefault();
+                    var fname = $("#firstname").val()
+                    var lname = $("#lastname").val();
+                    var email = $("#signup-email").val();
+                    var rollno = $("#roll-number").val();
+                    var adress = $("#adress").val();
+                    var city = $("#city").val();
+                    var state = $("#state").val();
+                    var pin = $("#pincode").val();
+                    var password = $("#signup-password").val();
+                    var cpass = $("#confirm-password").val();
+                    var phoneno = $("#phone-number").val();
+
+                    // console.log(name);
+
+                    $.ajax({
+                        url: 'apis/register.php',
+                        data: {
+                            fname: fname,
+                            lname: lname,
+                            email: email,
+                            rollno: rollno,
+                            phoneno: phoneno,
+                            adress: adress,
+                            city: city,
+                            state: state,
+                            pin: pin,
+                            password: password,
+                            cpass: cpass
+
+                        },
+                        type: 'POST',
+                        success: function(response) {
+                            console.log(response);
+
+                            var res = JSON.parse(response);
+                            if (res.status == "success") {
+
+                                swal('Registration Successfull!', '', 'success').then((value) => {
+                                    window.location = 'index.html';
+                                });
+                            } else {
+                                swal(res.message, '', 'error');
+
+                            }
+                        }
+                    });
+                    return false;
+                }));
+                return false;
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                $("#login-form").on('submit', (function(e) {
+                    e.preventDefault();
+                    var loginEmail = $("#login-email").val();
+                    var loginPassword = $("#login-password").val();
+
+                    $.ajax({
+                        url: 'apis/login.php',
+                        data: {
+                            loginEmail: loginEmail,
+                            loginPassword: loginPassword,
+                        },
+                        type: 'POST',
+                        success: function(response) {
+                            console.log(JSON.parse(response));
+
+                            var res = JSON.parse(response);
+                            if (res.status == "success") {
+                                // alert(res.message);
+                                swal('Login Successfull!', '', 'success').then((value) => {
+                                    window.location = 'home.php';
+                                });
+                            } else {
+                                swal(res.message, '', 'error');
+
+                            }
+                        }
+                    });
+                    return false;
+                }));
+                return false;
+            });
+        </script>
 </body>
 
 </html>
