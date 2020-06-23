@@ -1,3 +1,14 @@
+<?php 
+
+
+session_start();
+if(!isset($_SESSION['username']))
+{
+  echo "You are logged out";
+  header('location:index.php');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -163,7 +174,7 @@
                                             <img src="images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Anonymous</a>
+                                            <a class="js-acc-btn" href="#"><?php echo $_SESSION['name']; ?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -174,9 +185,9 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Anonymous</a>
+                                                        <a href="#"><?php echo $_SESSION['name']; ?></a>
                                                     </h5>
-                                                    <span class="email">johndoe@nitrkl.ac.in</span>
+                                                    <span class="email">j<?php echo $_SESSION['email']; ?></span>
                                                 </div>
                                             </div>
                                              <div class="account-dropdown__footer">
@@ -202,7 +213,7 @@
                     <div class="row align-items-lg-center">
                         <div class="col-12 col-md-5 text-center text-md-center">
                         <div class="section-heading mb-3">
-                            <h1 class="summer">Welcome Admin</h1>
+                            <h1 class="summer">Welcome <?php echo $_SESSION['name']; ?></h1>
                         </div>
 
 

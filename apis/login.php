@@ -16,7 +16,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST" ){
 		if(mysqli_num_rows($query1_run)>0)
        		 { 
                   $_SESSION['name'] = $query_row['name'];
-                  $_SESSION['Email']=$query_row['email'];
+                  $_SESSION['email']=$query_row['email'];
+                  $_SESSION['rollno']=$query_row['rollno'];
+                  $_SESSION['adress']=$query_row['adress'];
+                  $_SESSION['phoneno']=$query_row['phoneno'];
                   echo(json_encode(array('status'=>'success','message'=>$_SESSION['name'])));
                  }
        		   else

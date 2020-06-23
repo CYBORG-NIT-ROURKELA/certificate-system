@@ -1,3 +1,14 @@
+<?php 
+
+
+session_start();
+if(!isset($_SESSION['name']))
+{
+  echo "You are logged out";
+  header('location:login.php');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -162,7 +173,7 @@
                                             <img src="images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Anonymous</a>
+                                            <a class="js-acc-btn" href="#"><?php echo $_SESSION['name']; ?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -173,9 +184,9 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Anonymous</a>
+                                                        <a href="#"><?php echo $_SESSION['name']; ?></a>
                                                     </h5>
-                                                    <span class="email">johndoe@nitrkl.ac.in</span>
+                                                    <span class="email"><?php echo $_SESSION['email']; ?></span>
                                                 </div>
                                             </div>
 
@@ -217,7 +228,7 @@
 
             <div class="col-lg-8 col-md-7">
                 <div class="team-single-text">
-                    <h4 class="font-size38 sm-font-size32 xs-font-size30 lol">Anonymous </h4>
+                    <h4 class="font-size38 sm-font-size32 xs-font-size30 lol"><?php echo $_SESSION['name']; ?> </h4>
                     <p class="top"></p>
                     <div class="contact-info-section margin-40px-tb">
                         <ul class="list-style9 no-margin">
@@ -229,7 +240,7 @@
                                         <strong class="margin-10px-left text-orange">Roll Number:</strong>
                                     </div>
                                     <div class="col-md-7 col-7">
-                                        <p>116XY1234</p>
+                                        <p><?php echo $_SESSION['rollno']; ?></p>
                                     </div>
                                 </div>
 
@@ -253,27 +264,15 @@
                                 <div class="row">
                                     <div class="col-md-5 col-5">
                                         <i class="far fa-file text-lightred"></i>
-                                        <strong class="margin-10px-left text-lightred">Team</strong>
+                                        <strong class="margin-10px-left text-lightred">Address</strong>
                                     </div>
                                     <div class="col-md-7 col-7">
-                                        <p>Technical Team</p>
+                                        <p><?php echo $_SESSION['adress']; ?></p>
                                     </div>
                                 </div>
 
                             </li>
-                            <li>
-
-                                <div class="row">
-                                    <div class="col-md-5 col-5">
-                                        <i class="fas fa-map-marker-alt text-green"></i>
-                                        <strong class="margin-10px-left text-green">Date of Birth</strong>
-                                    </div>
-                                    <div class="col-md-7 col-7">
-                                        <p>18-06-2000</p>
-                                    </div>
-                                </div>
-
-                            </li>
+                           
                             <li>
 
                                 <div class="row">
@@ -282,7 +281,7 @@
                                         <strong class="margin-10px-left xs-margin-four-left text-red">Phone:</strong>
                                     </div>
                                     <div class="col-md-7 col-7">
-                                        <p>1234567890</p>
+                                        <p><?php echo $_SESSION['phoneno']; ?></p>
                                     </div>
                                 </div>
 
@@ -295,7 +294,7 @@
                                         <strong class="margin-10px-left xs-margin-four-left text-pink">Email:</strong>
                                     </div>
                                     <div class="col-md-7 col-7">
-                                        <p><a href="javascript:void(0)">addyour@emailhere</a></p>
+                                        <p><a href="javascript:void(0)"><?php echo $_SESSION['email']; ?></a></p>
                                     </div>
                                 </div>
                             </li>

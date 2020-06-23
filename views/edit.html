@@ -1,3 +1,14 @@
+<?php 
+
+
+session_start();
+if(!isset($_SESSION['name']))
+{
+  echo "You are logged out";
+  header('location:index.php');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -161,7 +172,7 @@
                                             <img src="images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Anonymous</a>
+                                            <a class="js-acc-btn" href="#"><?php echo $_SESSION['name']; ?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -172,9 +183,9 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Anonymous</a>
+                                                        <a href="#"><?php echo $_SESSION['name']; ?></a>
                                                     </h5>
-                                                    <span class="email">johndoe@nitrkl.ac.in</span>
+                                                    <span class="email"><?php echo $_SESSION['email']; ?></span>
                                                 </div>
                                             </div>
 
@@ -219,31 +230,31 @@
   <tbody>
     <tr>
       <th scope="row">Name</th>
-      <td>Anonymous</td>
+      <td><?php echo $_SESSION['name']; ?></td>
       <td><button type="button" class="btn btn-outline-secondary">Change</button></td>
     </tr>
 
     <tr>
       <th scope="row">Roll Number</th>
-      <td>116XY1234</td>
+      <td><?php echo $_SESSION['rollno']; ?></td>
       <td><button type="button" class="btn btn-outline-secondary">Change</button></td>
     </tr>
 
     <tr>
-      <th scope="row">DOB</th>
-      <td>01-01-2001</td>
+      <th scope="row">Address</th>
+      <td><?php echo $_SESSION['adress']; ?></td>
       <td><button type="button" class="btn btn-outline-secondary">Change</button></td>
     </tr>
 
     <tr>
       <th scope="row">Email id</th>
-      <td>xyz@nitrkl.ac.in</td>
+      <td><?php echo $_SESSION['email']; ?></td>
       <td><button type="button" class="btn btn-outline-secondary">Change</button></td>
     </tr>
 
     <tr>
       <th scope="row">Phone Number</th>
-      <td>1234567890</td>
+      <td><?php echo $_SESSION['phoneno']; ?></td>
       <td><button type="button" class="btn btn-outline-secondary">Change</button></td>
     </tr>
   </tbody>
