@@ -230,31 +230,31 @@ if(!isset($_SESSION['name']))
   <tbody>
     <tr>
       <th scope="row">Name</th>
-      <td><?php echo $_SESSION['name']; ?></td>
+      <td id="name"></td>
       <td><button type="button" class="btn btn-outline-secondary">Change</button></td>
     </tr>
 
     <tr>
       <th scope="row">Roll Number</th>
-      <td><?php echo $_SESSION['rollno']; ?></td>
+      <td id="rollno"></td>
       <td><button type="button" class="btn btn-outline-secondary">Change</button></td>
     </tr>
 
     <tr>
       <th scope="row">Address</th>
-      <td><?php echo $_SESSION['adress']; ?></td>
+      <td id="address"></td>
       <td><button type="button" class="btn btn-outline-secondary">Change</button></td>
     </tr>
 
     <tr>
       <th scope="row">Email id</th>
-      <td><?php echo $_SESSION['email']; ?></td>
+      <td id="email"></td>
       <td><button type="button" class="btn btn-outline-secondary">Change</button></td>
     </tr>
 
     <tr>
       <th scope="row">Phone Number</th>
-      <td><?php echo $_SESSION['phoneno']; ?></td>
+      <td id="phoneno"></td>
       <td><button type="button" class="btn btn-outline-secondary">Change</button></td>
     </tr>
   </tbody>
@@ -283,6 +283,40 @@ if(!isset($_SESSION['name']))
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
+      <script>
+    $.ajax({
+        url: 'profile.php',
+        type: 'get',
+        var basicInfo = $.parseJSON(basicInfo);
+
+        success: function(response) {
+
+            console.log(response);
+            response = JSON.parse(response);
+            if (response.status == "success") {
+                name = response.result['basicInfo']['name'];
+                email = response.result['basicInfo']['email'];
+                adress = response.result['basicInfo']['adress'];
+                phoneno = response.result['basicInfo']['phoneno'];
+                rollno = response.result['basicInfo']['rollno'];
+
+                        document.getElementById('name').innerHTML = + name;
+                        document.getElementById('email').innerHTML = + email;
+                        document.getElementById('adress').innerHTML =+ adress;
+                        document.getElementById('phoneno').innerHTML = + phoneno;
+                        document.getElementById('rollno').innerHTML = + rollno;
+
+                       
+
+            }
+            else if (response.status == "failure") {
+                    swal('Please Login First to open profile page !', ': [', 'warning').then((value) => {
+                        window.location = './login.html';
+                    });
+                }
+        }
+    });
+</script>
 
 </body>
 

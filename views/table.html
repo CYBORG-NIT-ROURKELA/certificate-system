@@ -2,7 +2,7 @@
 
 
 session_start();
-if(!isset($_SESSION['username']))
+if(!isset($_SESSION['name']))
 {
   echo "You are logged out";
   header('location:index.php');
@@ -232,7 +232,7 @@ if(!isset($_SESSION['username']))
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td><?php echo $_SESSION['name']; ?></td>
+      <td id="name">/td>
       <td>00:00</td>
       <td>In Process</td>
     </tr>
@@ -263,6 +263,32 @@ if(!isset($_SESSION['username']))
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
+    <script>
+    $.ajax({
+        url: 'profile.php',
+        type: 'get',
+        var basicInfo = $.parseJSON(basicInfo);
+        success: function(response) {
+
+            console.log(response);
+            response = JSON.parse(response);
+            if (response.status == "success") {
+                name = response.result['basicInfo']['name'];
+               \
+
+                        document.getElementById('name').innerHTML = + name;
+                        
+                       
+
+            }
+            else if (response.status == "failure") {
+                    swal('Please Login First to open profile page !', ': [', 'warning').then((value) => {
+                        window.location = './login.html';
+                    });
+                }
+        }
+    });
+</script>
 
 </body>
 

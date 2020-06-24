@@ -2,7 +2,7 @@
 
 
 session_start();
-if(!isset($_SESSION['username']))
+if(!isset($_SESSION['name']))
 {
   echo "You are logged out";
   header('location:index.php');
@@ -174,20 +174,20 @@ if(!isset($_SESSION['username']))
                                             <img src="images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#"><?php echo $_SESSION['name']; ?></a>
+                                            <a class="js-acc-btn" href="#" class="name"></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" >
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#"><?php echo $_SESSION['name']; ?></a>
+                                                        <a href="#" id="name"> </a>
                                                     </h5>
-                                                    <span class="email">j<?php echo $_SESSION['email']; ?></span>
+                                                    <span class="email" id="email"></span>
                                                 </div>
                                             </div>
                                              <div class="account-dropdown__footer">
@@ -213,7 +213,7 @@ if(!isset($_SESSION['username']))
                     <div class="row align-items-lg-center">
                         <div class="col-12 col-md-5 text-center text-md-center">
                         <div class="section-heading mb-3">
-                            <h1 class="summer">Welcome <?php echo $_SESSION['name']; ?></h1>
+                            <h1 class="summer" id="name"></h1>
                         </div>
 
 
@@ -246,6 +246,36 @@ if(!isset($_SESSION['username']))
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
+    
+        <script>
+    $.ajax({
+        url: 'profile.php',
+        type: 'get',
+        var basicInfo = $.parseJSON(basicInfo);
+
+        success: function(response) {
+
+            console.log(response);
+            response = JSON.parse(response);
+            if (response.status == "success") {
+                name = response.result['basicInfo']['name'];
+                email = response.result['basicInfo']['email'];
+
+                        document.getElementById('name').innerHTML ='<b>Welcome</b> : ' + name;
+                        document.getElementById('email').innerHTML = + email;
+                       
+
+            }
+            else if (response.status == "failure") {
+                    swal('Please Login First to open profile page !', ': [', 'warning').then((value) => {
+                        window.location = './login.html';
+                    });
+                }
+        }
+    });
+</script>
+
+    
 
 </body>
 

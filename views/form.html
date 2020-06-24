@@ -173,7 +173,7 @@ if(!isset($_SESSION['name']))
                                             <img src="images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#"><?php echo $_SESSION['name']; ?></a>
+                                            <a class="js-acc-btn" href="#" id="name"></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -184,7 +184,7 @@ if(!isset($_SESSION['name']))
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#"><?php echo $_SESSION['name']; ?></a>
+                                                        <a href="#" id="name"></a>
                                                     </h5>
                                                     <span class="email"><?php echo $_SESSION['email']; ?></span>
                                                 </div>
@@ -228,7 +228,7 @@ if(!isset($_SESSION['name']))
 
             <div class="col-lg-8 col-md-7">
                 <div class="team-single-text">
-                    <h4 class="font-size38 sm-font-size32 xs-font-size30 lol"><?php echo $_SESSION['name']; ?> </h4>
+                    <h4 class="font-size38 sm-font-size32 xs-font-size30 lol" id="name"></h4>
                     <p class="top"></p>
                     <div class="contact-info-section margin-40px-tb">
                         <ul class="list-style9 no-margin">
@@ -240,7 +240,7 @@ if(!isset($_SESSION['name']))
                                         <strong class="margin-10px-left text-orange">Roll Number:</strong>
                                     </div>
                                     <div class="col-md-7 col-7">
-                                        <p><?php echo $_SESSION['rollno']; ?></p>
+                                        <p id="rollno"></p>
                                     </div>
                                 </div>
 
@@ -267,7 +267,7 @@ if(!isset($_SESSION['name']))
                                         <strong class="margin-10px-left text-lightred">Address</strong>
                                     </div>
                                     <div class="col-md-7 col-7">
-                                        <p><?php echo $_SESSION['adress']; ?></p>
+                                        <p id="adress"></p>
                                     </div>
                                 </div>
 
@@ -281,7 +281,7 @@ if(!isset($_SESSION['name']))
                                         <strong class="margin-10px-left xs-margin-four-left text-red">Phone:</strong>
                                     </div>
                                     <div class="col-md-7 col-7">
-                                        <p><?php echo $_SESSION['phoneno']; ?></p>
+                                        <p id="phoneno"></p>
                                     </div>
                                 </div>
 
@@ -294,7 +294,7 @@ if(!isset($_SESSION['name']))
                                         <strong class="margin-10px-left xs-margin-four-left text-pink">Email:</strong>
                                     </div>
                                     <div class="col-md-7 col-7">
-                                        <p><a href="javascript:void(0)"><?php echo $_SESSION['email']; ?></a></p>
+                                        <p><a href="javascript:void(0)" id="email"></a></p>
                                     </div>
                                 </div>
                             </li>
@@ -327,6 +327,39 @@ if(!isset($_SESSION['name']))
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
+    <script>
+    $.ajax({
+        url: 'profile.php',
+        type: 'get',
+         var basicInfo = $.parseJSON(basicInfo);
+        success: function(response) {
+
+            console.log(response);
+            response = JSON.parse(response);
+            if (response.status == "success") {
+                name = response.result['basicInfo']['name'];
+                email = response.result['basicInfo']['email'];
+                adress = response.result['basicInfo']['adress'];
+                phoneno = response.result['basicInfo']['phoneno'];
+                rollno = response.result['basicInfo']['rollno'];
+
+                        document.getElementById('name').innerHTML = + name;
+                        document.getElementById('email').innerHTML = + email;
+                        document.getElementById('adress').innerHTML =+ adress;
+                        document.getElementById('phoneno').innerHTML = + phoneno;
+                        document.getElementById('rollno').innerHTML = + rollno;
+                        
+                       
+
+            }
+            else if (response.status == "failure") {
+                    swal('Please Login First to open profile page !', ': [', 'warning').then((value) => {
+                        window.location = './login.html';
+                    });
+                }
+        }
+    });
+</script>
 
 </body>
 

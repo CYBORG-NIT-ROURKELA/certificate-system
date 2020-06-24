@@ -21,6 +21,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" ){
                   $_SESSION['adress']=$query_row['adress'];
                   $_SESSION['phoneno']=$query_row['phoneno'];
                   echo(json_encode(array('status'=>'success','message'=>$_SESSION['name'])));
+                  add $_SESSION['login']=1;
                  }
        		   else
        		   {
