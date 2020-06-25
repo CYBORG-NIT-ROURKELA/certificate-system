@@ -128,7 +128,7 @@ const validateSignupForm = () => {
     }
     if (!rollNumber.value.match(rollMatch)) {
         document.getElementById("roll-number-alert").innerHTML =
-            "**should be of format 116ee650/716ee650";
+            "**should be of format 116ee6500/716ee6500";
         rollNumber.addEventListener("click", () => {
             setInterval(() => {
                 document.getElementById("roll-number-alert").innerHTML = "";

@@ -13,12 +13,15 @@ if($_SERVER["REQUEST_METHOD"] === "POST" ){
 
        		 $query1 ="SELECT * FROM users WHERE email='$loginEmail' AND password='$loginPassword'";
        		 $query1_run=mysqli_query($conn,$query1);
-		if(mysqli_num_rows($query1_run)>0)
+		        if(mysqli_num_rows($query1_run)==1)
        		 { 
+                  $query_row = mysqli_fetch_array($query1_run,MYSQLI_ASSOC);
+                  $_SESSION['logged_in'] = 1;
                   $_SESSION['name'] = $query_row['name'];
+                  $_SESSION['user_id']=$query_row['id'];
                   $_SESSION['Email']=$query_row['email'];
                   echo(json_encode(array('status'=>'success','message'=>$_SESSION['name'])));
-                 }
+            }
        		   else
        		   {
        	 	      echo(json_encode(array('status'=>'failure','message' => 'Wrong password  or unregistered email')));

@@ -163,7 +163,7 @@
                                             <img src="../assets/images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Anonymous</a>
+                                            <a class="js-acc-btn user_name" href="#">Anonymous</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -174,13 +174,13 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Anonymous</a>
+                                                        <a href="#" class="user_name">Anonymous</a>
                                                     </h5>
-                                                    <span class="email">johndoe@nitrkl.ac.in</span>
+                                                    <span class="user_email">johndoe@nitrkl.ac.in</span>
                                                 </div>
                                             </div>
                                              <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a id="signoutBtn">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
 
@@ -202,7 +202,7 @@
                     <div class="row align-items-lg-center">
                         <div class="col-12 col-md-5 text-center text-md-center">
                         <div class="section-heading mb-3">
-                            <h1 class="summer">Welcome Admin</h1>
+                            <h1 class="summer user_name">Welcome Admin</h1>
                         </div>
 
 
@@ -235,6 +235,10 @@
 
     <!-- Main JS-->
     <script src="../assets/js/main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="../assets/ajax/check_login.js"></script>
+    <script src="../assets/ajax/logout.js"></script>
 
 </body>
 
