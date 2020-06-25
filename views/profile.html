@@ -162,7 +162,7 @@
                                             <img src="../assets/images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Anonymous</a>
+                                            <a class="js-acc-btn user_name" href="#">Anonymous</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -173,14 +173,14 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Anonymous</a>
+                                                        <a href="#" class="user_name">Anonymous</a>
                                                     </h5>
-                                                    <span class="email">johndoe@nitrkl.ac.in</span>
+                                                    <span class="email user_email">johndoe@nitrkl.ac.in</span>
                                                 </div>
                                             </div>
 
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="#" id="signoutBtn">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
@@ -217,7 +217,7 @@
 
             <div class="col-lg-8 col-md-7">
                 <div class="team-single-text">
-                    <h4 class="font-size38 sm-font-size32 xs-font-size30 lol">Anonymous </h4>
+                    <h4 class="font-size38 sm-font-size32 xs-font-size30 lol user_name">Anonymous </h4>
                     <p class="top"></p>
                     <div class="contact-info-section margin-40px-tb">
                         <ul class="list-style9 no-margin">
@@ -229,51 +229,25 @@
                                         <strong class="margin-10px-left text-orange">Roll Number:</strong>
                                     </div>
                                     <div class="col-md-7 col-7">
-                                        <p>116XY1234</p>
+                                        <p class="user_roll">116XY1234</p>
                                     </div>
                                 </div>
 
                             </li>
-                            <li>
-
-                                <div class="row">
-                                    <div class="col-md-5 col-5">
-                                        <i class="far fa-gem text-purple"></i>
-                                        <strong class="margin-10px-left text-purple">Exp.:</strong>
-                                    </div>
-                                    <div class="col-md-7 col-7">
-                                        <p>3 years</p>
-                                    </div>
-                                </div>
-
-                            </li>
-
                             <li>
 
                                 <div class="row">
                                     <div class="col-md-5 col-5">
                                         <i class="far fa-file text-lightred"></i>
-                                        <strong class="margin-10px-left text-lightred">Team</strong>
+                                        <strong class="margin-10px-left text-lightred">Address:</strong>
                                     </div>
                                     <div class="col-md-7 col-7">
-                                        <p>Technical Team</p>
+                                        <p class="user_address">116XY1234</p>
                                     </div>
                                 </div>
 
                             </li>
-                            <li>
 
-                                <div class="row">
-                                    <div class="col-md-5 col-5">
-                                        <i class="fas fa-map-marker-alt text-green"></i>
-                                        <strong class="margin-10px-left text-green">Date of Birth</strong>
-                                    </div>
-                                    <div class="col-md-7 col-7">
-                                        <p>18-06-2000</p>
-                                    </div>
-                                </div>
-
-                            </li>
                             <li>
 
                                 <div class="row">
@@ -282,7 +256,7 @@
                                         <strong class="margin-10px-left xs-margin-four-left text-red">Phone:</strong>
                                     </div>
                                     <div class="col-md-7 col-7">
-                                        <p>1234567890</p>
+                                        <p class="user_phone">1234567890</p>
                                     </div>
                                 </div>
 
@@ -295,7 +269,7 @@
                                         <strong class="margin-10px-left xs-margin-four-left text-pink">Email:</strong>
                                     </div>
                                     <div class="col-md-7 col-7">
-                                        <p><a href="javascript:void(0)">addyour@emailhere</a></p>
+                                        <p><a href="javascript:void(0)" class="user_email">addyour@emailhere</a></p>
                                     </div>
                                 </div>
                             </li>
@@ -328,6 +302,10 @@
 
     <!-- Main JS-->
     <script src="../assets/js/main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="../assets/ajax/check_login.js"></script>
+    <script src="../assets/ajax/logout.js"></script>
 
 </body>
 
