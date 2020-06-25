@@ -9,6 +9,9 @@
                       console.log(response.result);
                       $('.user_name').html("Welcome " + response.result.name);
                       $('.user_email').html(response.result.email);
+                      $('.user_roll').html(response.result.rollno);
+                      $('.user_phone').html(response.result.phoneno);
+                      $('.user_address').html(response.result.adress);
                     }
                     else
                     {
