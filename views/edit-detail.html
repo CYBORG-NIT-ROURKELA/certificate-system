@@ -28,11 +28,12 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-
+ 
     <!-- Main CSS-->
     <link href="../assets/css/theme.css" rel="stylesheet" media="all">
 
 </head>
+<div id="display"></div>
 
 <body class="animsition">
     <div class="page-wrapper">
@@ -161,7 +162,7 @@
                                             <img src="../assets/images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Anonymous</a>
+                                            <a class="js-acc-btn user_name" href="#">Anonymous</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -172,14 +173,14 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Anonymous</a>
+                                                        <a href="#" class="user_name">Anonymous</a>
                                                     </h5>
-                                                    <span class="email">johndoe@nitrkl.ac.in</span>
+                                                    <span class="user_email">johndoe@nitrkl.ac.in</span>
                                                 </div>
                                             </div>
 
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="#" id="signoutBtn">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
@@ -205,7 +206,7 @@
                             <div class="col-12 col-md-5">
 
                             <div class="text-md-right">
-                            <button type="button" class="btn btn-light m-b-35"  style="margin-right: 16px"  style="margin-left: 16px"><a href="profile.html">Save</a></button>
+                            <button type="button" class="btn btn-light m-b-35"  style="margin-right: 16px"  style="margin-left: 16px" id="save" input type="submit"><a href="profile.html">Save</a></button>
                             </div>
 
                             </div>
@@ -214,46 +215,41 @@
   <div class="form-group row">
     <label for="inputName" class="col-sm-2 col-form-label">Name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputName" placeholder="Anonymous">
+      <input type="text" class="form-control " id="name"  name="name" required>
     </div>
   </div>
 
   <div class="form-group row">
     <label for="staticRoll" class="col-sm-2 col-form-label">Roll</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="staticRoll" value="116XY1234">
+      <p class="user_roll">116XY1234</p>
     </div>
   </div>
 
+   
+
     <div class="form-group row">
-      <label for="inputDate" class="col-sm-2 col-form-label">DOB</label>
+      <label for="inputDate" class="col-sm-2 col-form-label">Address</label>
       <div class="col-sm-10">
-        <input type="date" class="form-control" id="inputDate" placeholder="Date">
+        <input type="text" class="form-control " id="adress"  name="adress" required>
       </div>
     </div>
 
   <div class="form-group row">
     <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
-      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="anonymous@nitrkl.ac.in">
+     <input type="text" class="form-control " id="email"  name="email" required>
     </div>
   </div>
 
   <div class="form-group row">
     <label for="staticPhone" class="col-sm-2 col-form-label">Phone</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="staticPhone" value="1234567890">
+      <input type="text" class="form-control" id="phoneno" name="phoneno" pattern="[6-9]{1}[0-9]{9}" required>
     </div>
   </div>
 
-  <div class="form-check form-check-inline">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-    <label class="form-check-label" for="inlineCheckbox1">Technical</label>
-  </div>
-  <div class="form-check form-check-inline">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-    <label class="form-check-label" for="inlineCheckbox2">Non-Technical</label>
-  </div>
+
 
 </form>
 
@@ -263,21 +259,74 @@
 </div>
 
 
-    <!-- Jquery JS-->
+     <!-- Jquery JS-->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <!-- Bootstrap JS-->
-    <script src="../assets/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src=".../assets/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="../assets/vendor/bootstrap-4.1/bootstrap.min.js"></script>
     <!-- Vendor JS       -->
+
     <script src="../assets/vendor/wow/wow.min.js"></script>
     <script src="../assets/vendor/animsition/animsition.min.js"></script>
     <script src="../assets/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
     </script>
     <script src="../assets/vendor/circle-progress/circle-progress.min.js"></script>
     <script src="../assets/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    </script>
 
     <!-- Main JS-->
     <script src="../assets/js/main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+
+    <script>  
+ $(document).ready(function(){ 
+        
+        $.ajax({
+   url:'../apis/fetch.php',
+                type: "POST",
+                
+                dataType:"json",  
+                success:function(data){  
+                     $('#name').val(data.name);  
+                     $('#adress').val(data.adress);  
+                     $('#phoneno').val(data.phoneno);  
+                     $('#email').val(data.email); 
+
+                      
+                     
+                }  
+           });  
+
+
+
+      
+     $("#save").click(function(event){
+      event.preventDefault();
+      var name=$("#name").val();
+      var email=$("#email").val();
+      var phoneno=$("#phoneno").val();
+      var adress=$("#adress").val();
+      var rollno=$(".user_roll").val();
+     
+      $.ajax({
+        url:'../apis/edit.php',
+        method:"POST",
+        data:{name:name,email:email,phoneno:phoneno,adress:adress,rollno},
+        dataType:"html",
+        success:function(data){
+          $("#display").html(data);
+        }
+      });
+    });
+   });
+
+
+        
+
+ </script>
+ <script src="../assets/ajax/check_login.js"></script>
+    <script src="../assets/ajax/logout.js"></script>
 
 </body>
 
