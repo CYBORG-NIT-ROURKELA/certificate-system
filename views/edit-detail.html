@@ -220,9 +220,9 @@
   </div>
 
   <div class="form-group row">
-    <label for="staticRoll" class="col-sm-2 col-form-label">Roll</label>
+    <label for="staticRoll" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
-      <p class="user_roll">116XY1234</p>
+      <p class="user_email">anshusandhi6@gmail.com</p>
     </div>
   </div>
 
@@ -236,9 +236,9 @@
     </div>
 
   <div class="form-group row">
-    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+    <label for="staticEmail" class="col-sm-2 col-form-label">Roll</label>
     <div class="col-sm-10">
-     <input type="text" class="form-control " id="email"  name="email" required>
+     <input type="text" class="form-control " id="rollno"  name="rollno" required>
     </div>
   </div>
 
@@ -280,7 +280,7 @@
     
 
     <script>  
- $(document).ready(function(){ 
+  $(document).ready(function(){ 
         
         $.ajax({
    url:'../apis/fetch.php',
@@ -291,7 +291,7 @@
                      $('#name').val(data.name);  
                      $('#adress').val(data.adress);  
                      $('#phoneno').val(data.phoneno);  
-                     $('#email').val(data.email); 
+                     $('#rollno').val(data.rollno); 
 
                       
                      
@@ -304,25 +304,48 @@
      $("#save").click(function(event){
       event.preventDefault();
       var name=$("#name").val();
-      var email=$("#email").val();
+      var rollno=$("#rollno").val();
       var phoneno=$("#phoneno").val();
       var adress=$("#adress").val();
-      var rollno=$(".user_roll").val();
-     
-      $.ajax({
+      
+      if($("#name").val()=="")
+      {
+        swal("Enter correct name");
+
+      }
+      else if($("#adress").val()=="")
+      {
+        
+         swal("Enter correct address");
+     }
+      else if(phoneno.length != 10)
+      {
+       swal("Enter correct phone number");
+      }
+      else if((rollno.length != 9) || (rollno.charAt(2)!="6") || (rollno.substr(3, 2)==/^[A-Za-z]+$/) || (rollno.substr(5,4)==/^[0-9]+$/))
+      {
+       swal("Enter correct roll number");
+      }
+      else
+      {
+        $.ajax({
         url:'../apis/edit.php',
         method:"POST",
-        data:{name:name,email:email,phoneno:phoneno,adress:adress,rollno},
+        data:{name:name,rollno:rollno,phoneno:phoneno,adress:adress},
         dataType:"html",
-        success:function(data){
+        success:function(data)
+        {
           $("#display").html(data);
+          swal("Done!!! You can go to profiles page to check the changes");
         }
       });
-    });
-   });
+    }
+});
+
+});
+      
 
 
-        
 
  </script>
  <script src="../assets/ajax/check_login.js"></script>
@@ -332,3 +355,4 @@
 
 </html>
 <!-- end document-->
+
