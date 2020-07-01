@@ -3,6 +3,57 @@
     include('db.php');
     session_start();
 
+function validateAdress($adress){
+    if($adress==""){
+        echo(json_encode(array('status'=>'failure','message'=>'adress ,city and state are required')));
+    return 0;
+
+    }
+    return 1;
+}
+
+function validateName($name){
+    // echo $name;
+    if($name==''){
+        echo(json_encode(array('status'=>'failure','message'=>' first and last name required')));
+        return 0;
+    }
+
+    if(!preg_match("/^[a-zA-Z ]+$/", $name)){
+    echo(json_encode(array('status'=>'failure','message'=>' name should contain letters and spaces only')));
+    return  0;
+    }   
+    return 1;
+}
+
+function validateRoll($rollno){
+    if($rollno==''){
+        echo(json_encode(array('status'=>'failure','message'=>'roll number is required')));
+        return 0;
+    }
+         if(!preg_match('/^[17]{1}\d{1}[65]{1}[a-zA-Z]{2}\d{4}/',$rollno)){
+
+        echo(json_encode(array('status'=>'failure','message'=>'rollno should be of format 116ee0265/116EE0265')));
+        return 0;
+        }
+    return 1;
+    
+}
+
+function validatePhone($phone) {
+    if ($phone == '') {
+
+        echo(json_encode(array('status' => 'failure', 'message' => 'Phone number is required')));
+        return 0;
+    }
+    if (!preg_match('/^[0-9]{10}$/', $phone)) {
+
+        echo(json_encode(array('status' => 'failure', 'message' => 'Phone number should have 10 digits and should start with 6,7,8, or 9')));
+        return 0;
+    }
+    return 1;
+}
+
 
 
 
@@ -18,22 +69,24 @@
         $adress=$_POST['adress'];
         $rollno=$_POST['rollno'];
         $user_id = $_SESSION['user_id'];
+        if(validateRoll($rollno) && validatePhone($phoneno) && validateAdress($adress) && validateName($name))
+        {
       
-$query = mysqli_query($conn, "UPDATE users SET name='$name',phoneno='$phoneno',rollno='$rollno',adress='$adress' WHERE   id ='".$user_id."'");
+        $query = mysqli_query($conn, "UPDATE users SET name='$name',phoneno='$phoneno',rollno='$rollno',adress='$adress' WHERE   id ='".$user_id."'");
+        if ($query)
+        {
+            echo(json_encode(array('status'=>'success','message' => 'Validation success')));
+        }
+        
+        }
         
 
-        if($query)
-        {
-            echo" <div class='alert alert-screen'>Data done</div>";
-        }
-        else
-        {
-            echo" <div class='alert alert-screen'>Error</div>";
-        }
+        
+        
     }
     else
     {
-        echo" <div class='alert alert-screen'>Error Again</div>";
+       echo(json_encode(array('status'=>'failure','message' => 'Validation failed')));
     }
 
 

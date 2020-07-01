@@ -206,7 +206,7 @@
                             <div class="col-12 col-md-5">
 
                             <div class="text-md-right">
-                            <button type="button" class="btn btn-light m-b-35"  style="margin-right: 16px"  style="margin-left: 16px" id="save" input type="submit"><a href="profile.html">Save</a></button>
+                            <button type="button" class="btn btn-light m-b-35"  style="margin-right: 16px"  style="margin-left: 16px" id="save" input type="submit">Save</button>
                             </div>
 
                             </div>
@@ -297,57 +297,63 @@
                      
                 }  
            });  
-
-
-
-      
-     $("#save").click(function(event){
+    });
+  </script>
+  <script >
+      $(document).ready(function() {
+       $("#save").click(function(event){
       event.preventDefault();
+      
       var name=$("#name").val();
       var rollno=$("#rollno").val();
       var phoneno=$("#phoneno").val();
       var adress=$("#adress").val();
       
-      if($("#name").val()=="")
-      {
-        swal("Enter correct name");
-
-      }
-      else if($("#adress").val()=="")
-      {
-        
-         swal("Enter correct address");
-     }
-      else if(phoneno.length != 10)
-      {
-       swal("Enter correct phone number");
-      }
-      else if((rollno.length != 9) || (rollno.charAt(2)!="6") || (rollno.substr(3, 2)==/^[A-Za-z]+$/) || (rollno.substr(5,4)==/^[0-9]+$/))
-      {
-       swal("Enter correct roll number");
-      }
-      else
-      {
+      
         $.ajax({
         url:'../apis/edit.php',
         method:"POST",
         data:{name:name,rollno:rollno,phoneno:phoneno,adress:adress},
-        dataType:"html",
-        success:function(data)
+        
+        success:function(response)
         {
-          $("#display").html(data);
-          swal("Done!!! You can go to profiles page to check the changes");
-        }
-      });
-    }
-});
+           console.log((response));
+           var res = JSON.parse(response);
+            if (res.status == "success") {
+                swal('changed Successfull!', '', 'success').then((value) => {
+                                    window.location = 'profile.html';
+                                    });
+            }
+            else {
 
-});
+                  swal(res.message, '', 'error');
+                                
+
+                 }
+             }
+         });
+        return false;
+                });
+                return false;
+            });
+
+           
+
+  </script>
+
+
+
       
 
 
+                                
+                               
+           
 
- </script>
+
+
+
+ 
  <script src="../assets/ajax/check_login.js"></script>
     <script src="../assets/ajax/logout.js"></script>
 
@@ -355,4 +361,3 @@
 
 </html>
 <!-- end document-->
-
