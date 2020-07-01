@@ -42,7 +42,7 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="index.html">
-                            <img src="../assets/images/icon/logo(2).png" alt="Cyborg" height="100px" width="100px"/>
+                            <img src="../assets/images/icon/logo(2).png" alt="Cyborg" height="100px" width="100px" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -81,7 +81,7 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="index.html">
-                    <img src="../assets/images/icon/logo(2).png" alt="Cyborg" height="100px" width="100px"/>
+                    <img src="../assets/images/icon/logo(2).png" alt="Cyborg" height="100px" width="100px" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -134,7 +134,7 @@
                                                     <img src="../assets/images/icon/avatar-01.jpg" alt="Michelle Moreno" />
                                                 </div>
                                                 <div class="content">
-                                                   <h6>Cyborg</h6>
+                                                    <h6>Cyborg</h6>
                                                     <p>Received by Faculty Advisor.</p>
                                                     <span class="time">3 min ago</span>
                                                 </div>
@@ -144,7 +144,7 @@
                                                     <img src="../assets/images/icon/avatar-01.jpg" alt="Diane Myers" />
                                                 </div>
                                                 <div class="content">
-                                                   <h6>Cyborg</h6>
+                                                    <h6>Cyborg</h6>
                                                     <p>Your request has been sent.</p>
                                                     <span class="time">Yesterday</span>
                                                 </div>
@@ -161,7 +161,7 @@
                                             <img src="../assets/images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Anonymous</a>
+                                            <a class="js-acc-btn user_name" href="#">Anonymous</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -171,15 +171,15 @@
                                                     </a>
                                                 </div>
                                                 <div class="content">
-                                                    <h5 class="name">
+                                                    <h5 class="user_name">
                                                         <a href="#">Anonymous</a>
                                                     </h5>
-                                                    <span class="email">johndoe@nitrkl.ac.in</span>
+                                                    <span class="user_email">johndoe@nitrkl.ac.in</span>
                                                 </div>
                                             </div>
 
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="#" id="signoutBtn">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
@@ -196,44 +196,40 @@
             <div class="main-content">
                 <div class="section__content section__content--p30">
 
-                        <div class="row">
-                            <div class="col-12 col-md-5">
-                                <!-- DATA TABLE -->
-                                <h3 class="title-5 m-b-35">Progress table</h3>
+                    <div class="row">
+                        <div class="col-12 col-md-5">
+                            <!-- DATA TABLE -->
+                            <h3 class="title-5 m-b-35">Progress table</h3>
+                        </div>
+                        <div class="col-12 col-md-5">
+                            <div class="text-md-right">
+
+                                <button type="button" class="btn btn-success m-b-35" style="margin-right: 16px" style="margin-left: 16px" id='request'>Request
+                                    Certificate</button>
+                                <button type="button" class="btn btn-success m-b-35" style="margin-right: 16px" id='download'>Download</button>
                             </div>
-                            <div class="col-12 col-md-5">
-                                <div class="text-md-right">
-
-  <button type="button" class="btn btn-success m-b-35"  style="margin-right: 16px"  style="margin-left: 16px">Request Certificate</button>
-<button type="button" class="btn btn-success m-b-35"  style="margin-right: 16px">Download</button>
-</div>
-</div>
-  <div class="col-md-12">
-                               <table class="table table-hover">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">Sl.No.</th>
-      <th scope="col">Position</th>
-      <th scope="col">Time</th>
-      <th scope="col">Approval</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Anonymous</td>
-      <td>00:00</td>
-      <td>In Process</td>
-    </tr>
-  </tbody>
-</table>
+                        </div>
+                        <div class="col-md-12">
+                            <table class="table table-hover">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Approval</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id='rel'>
+                                        <td id="status">Process</td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
 
-</div>
-</div>
-</div></div>
-</div>
-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Jquery JS-->
@@ -252,6 +248,11 @@
 
     <!-- Main JS-->
     <script src="../assets/js/main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="../assets/ajax/check_login.js"></script>
+    <script src="../assets/ajax/logout.js"></script>
+    <script src="../assets/ajax/certificate.js"></script>
 
 </body>
 
