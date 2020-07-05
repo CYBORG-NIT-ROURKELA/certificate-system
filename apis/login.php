@@ -1,6 +1,8 @@
 <?php
 session_start();
 include 'db.php';
+include 'data.php';
+include 'data1.php';
 // echo $email;
 if($_SERVER["REQUEST_METHOD"] === "POST" ){
 
@@ -20,7 +22,19 @@ if($_SERVER["REQUEST_METHOD"] === "POST" ){
                   $_SESSION['name'] = $query_row['name'];
                   $_SESSION['user_id']=$query_row['id'];
                   $_SESSION['Email']=$query_row['email'];
-                  echo(json_encode(array('status'=>'success','message'=>$_SESSION['name'])));
+                  $user_id = $_SESSION['user_id'];
+                  
+                  if(($user_id=="1") || ($user_id=="2") || ($user_id=="3"))
+                  {
+                   
+                    echo(json_encode(array('status'=>'success1')));
+                    }
+                  else
+                  {
+                    echo(json_encode(array('status'=>'success')));
+                  }
+
+                  
             }
        		   else
        		   {

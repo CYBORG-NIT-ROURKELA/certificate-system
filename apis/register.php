@@ -3,6 +3,8 @@
 
 session_start();
 include 'db.php';
+include 'data.php';
+include 'data1.php';
 
 function validateName($name){
 	// echo $name;

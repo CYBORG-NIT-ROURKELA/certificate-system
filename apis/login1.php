@@ -8,20 +8,11 @@
 
     if (isset($_SESSION['logged_in']) && isset($_SESSION['user_id']))
     { 
-    if(($_SESSION['user_id']==1)||($_SESSION['user_id']==2)||($_SESSION['user_id']==3))
-
-     
-         
-        {
-
-         echo json_encode(array('status' => 'failure', 'result' => 'Unwanted Login'));
-        }
-        
-        
-    
-    else
+    if(($_SESSION['user_id']==0) || ($_SESSION['user_id']==1) || ($_SESSION['user_id']==2) )
     {
-                 $user_id = $_SESSION['user_id'];
+        
+        {
+                $user_id = $_SESSION['user_id'];
                 $basicInfo=[];
                 //basicInfo
                 $query = mysqli_query($conn, "SELECT * FROM users where id ='".$user_id."'");
@@ -32,6 +23,14 @@
                 }
  
                 echo json_encode(array('status' => 'success', 'result' => $basicInfo));
+
+        }
+        
+        
+	}
+    else
+    {
+       echo json_encode(array('status' => 'failure', 'result' => 'incorrect user_id'));
     }
 }
 else
