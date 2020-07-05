@@ -237,6 +237,7 @@
                     var loginPassword = $("#login-password").val();
 
                     $.ajax({
+                        
                         url: 'apis/login.php',
                         data: {
                             loginEmail: loginEmail,
@@ -252,7 +253,14 @@
                                 swal('Login Successfull!', '', 'success').then((value) => {
                                     window.location = 'views/index.html';
                                 });
-                            } else {
+                            }
+                            else if (res.status == "success1")
+                            {
+                                 swal('Login Successfull!', '', 'success').then((value) => {
+                                    window.location = 'views/response.html';
+                                });
+                            }
+                             else {
                                 swal(res.message, '', 'error');
 
                             }
@@ -263,6 +271,7 @@
                 return false;
             });
         </script>
+
 </body>
 
 </html>
