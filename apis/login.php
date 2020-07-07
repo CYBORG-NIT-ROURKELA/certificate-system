@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" ){
 		  $loginPassword=hash('sha512', $loginPassword);
 
        		 $query1 ="SELECT * FROM users WHERE email='$loginEmail' AND password='$loginPassword'";
-       		 $query1_run=mysqli_query($conn,$query1);
+       		 $query1_run=mysqli_query($con,$query1);
 		        if(mysqli_num_rows($query1_run)==1)
        		 { 
                   $query_row = mysqli_fetch_array($query1_run,MYSQLI_ASSOC);
@@ -54,5 +54,5 @@ if($_SERVER["REQUEST_METHOD"] === "POST" ){
       echo(json_encode(array('status'=>'failure','message' => 'Not a post request')));
       }
 
-	mysqli_close($conn);
+	mysqli_close($con);
 	?>
