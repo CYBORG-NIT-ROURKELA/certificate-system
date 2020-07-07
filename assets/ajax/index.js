@@ -115,7 +115,7 @@ const validateSignupForm = () => {
         return false;
     }
     // ROLL NUMBER VALIDATIONSS
-    const rollMatch = /^\d{3}[a-z]{2}\d{4}$/i;
+    const rollMatch = /^116[a-z]{2}\d{4}$|^715[a-z]{2}\d{4}$/i;
     if (rollNumber.value == "") {
         document.getElementById("roll-number-alert").innerHTML =
             "**roll number cannot be empty";
@@ -128,7 +128,7 @@ const validateSignupForm = () => {
     }
     if (!rollNumber.value.match(rollMatch)) {
         document.getElementById("roll-number-alert").innerHTML =
-            "**should be of format 116ee6500/716ee6500";
+            "**should be of format 116ee0650/715ee0650";
         rollNumber.addEventListener("click", () => {
             setInterval(() => {
                 document.getElementById("roll-number-alert").innerHTML = "";
@@ -139,6 +139,7 @@ const validateSignupForm = () => {
 
 
     // PHONE NUMBER VALIDATIONS
+    const phoneMatch = /^[6-9][0-9]{9}$/;
     if (phoneNumber.value == "") {
         document.getElementById("phone-number-alert").innerHTML =
             "**phone number cannot be empty";
@@ -149,9 +150,9 @@ const validateSignupForm = () => {
         });
         return false;
     }
-    if (isNaN(phoneNumber.value)) {
+    if (!phoneNumber.value.match(phoneMatch)) {
         document.getElementById("phone-number-alert").innerHTML =
-            "**should contain only numbers";
+            "**should begin with 6,7,8,9 and should contain only 10 digits";
         phoneNumber.addEventListener("click", () => {
             setInterval(() => {
                 document.getElementById("phone-number-alert").innerHTML = "";
@@ -236,6 +237,16 @@ const validateSignupForm = () => {
     if (isNaN(pinCode.value)) {
         document.getElementById("pincode-alert").innerHTML =
             "**pinCode contains only numbers";
+        pinCode.addEventListener("click", () => {
+            setInterval(() => {
+                document.getElementById("pincode-alert").innerHTML = "";
+            }, 2500);
+        });
+        return false;
+    }
+    if (pinCode.value.length != 6) {
+        document.getElementById("pincode-alert").innerHTML =
+            "**should contain 6 digits";
         pinCode.addEventListener("click", () => {
             setInterval(() => {
                 document.getElementById("pincode-alert").innerHTML = "";
