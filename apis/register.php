@@ -30,7 +30,7 @@ function validateRoll($rollno){
 		echo(json_encode(array('status'=>'failure','message'=>'roll number is required')));
 		return 0;
 	}
-		if(!preg_match('/^[17]{1}\d{1}[65]{1}[a-zA-Z]{2}\d{4}/',$rollno)){
+		if(!preg_match('/^116[a-zA-Z]{2}\d{4}|^715[a-zA-Z]{2}\d{4}/',$rollno)){
 
 		echo(json_encode(array('status'=>'failure','message'=>'rollno should be of format 116ee0265/715ee0265')));
 		return 0;
