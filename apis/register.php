@@ -76,7 +76,7 @@ function validatePhone($phone) {
 		echo(json_encode(array('status' => 'failure', 'message' => 'Phone number is required')));
 		return 0;
 	}
-	if (!preg_match('/^[0-9]{10}$/', $phone)) {
+	if (!preg_match('/^[6-9][0-9]{9}$/', $phone)) {
 
 		echo(json_encode(array('status' => 'failure', 'message' => 'Phone number should have 10 digits and should start with 6,7,8, or 9')));
 		return 0;
@@ -133,7 +133,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" )
 		{
 			if($password==$confirmPassword){
     
-				$query1=mysqli_query($conn,"SELECT * from users where email='$email'");
+				$query1=mysqli_query($con,"SELECT * from users where email='$email'");
 				$count=mysqli_num_rows($query1);
 			
 				if(mysqli_num_rows($query1)==0){
@@ -141,20 +141,20 @@ if($_SERVER["REQUEST_METHOD"] === "POST" )
 	              {
 					$name=$fname.' '.$lname;
 					$adress=$adress.','.$city.','.$state.','.$pin;
-					$name = mysqli_real_escape_string($conn, $name);
-			    	$rollno = mysqli_real_escape_string($conn, $rollno);
-			    	$phoneno = mysqli_real_escape_string($conn, $phoneno);
-				    $email = mysqli_real_escape_string($conn, $email);
-				    $adress = mysqli_real_escape_string($conn, $adress);
-	        	    $password = mysqli_real_escape_string($conn, hash('sha512', $password) );
+					$name = mysqli_real_escape_string($con, $name);
+			    	$rollno = mysqli_real_escape_string($con, $rollno);
+			    	$phoneno = mysqli_real_escape_string($con, $phoneno);
+				    $email = mysqli_real_escape_string($con, $email);
+				    $adress = mysqli_real_escape_string($con, $adress);
+	        	    $password = mysqli_real_escape_string($con, hash('sha512', $password) );
 
 				$q = "INSERT INTO users(name, rollno, phoneno, email, adress, password) VALUES ('$name','$rollno','$phoneno','$email','$adress','$password')";
 				
-				$query = mysqli_query($conn, $q);
+				$query = mysqli_query($con, $q);
 
 				  if ($query) {
 
-					$query = mysqli_query($conn, 'SELECT email FROM users WHERE email="'.$email.'"');
+					$query = mysqli_query($con, 'SELECT email FROM users WHERE email="'.$email.'"');
 					$email = mysqli_fetch_array($query)["email"];
 					echo(json_encode(array('status'=>'success','message'=>$email)));
 					
