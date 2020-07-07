@@ -46,7 +46,7 @@ function validatePhone($phone) {
         echo(json_encode(array('status' => 'failure', 'message' => 'Phone number is required')));
         return 0;
     }
-    if (!preg_match('/^[0-9]{10}$/', $phone)) {
+    if (!preg_match('/^[6-9][0-9]{9}$/', $phone)) {
 
         echo(json_encode(array('status' => 'failure', 'message' => 'Phone number should have 10 digits and should start with 6,7,8, or 9')));
         return 0;
@@ -72,7 +72,7 @@ function validatePhone($phone) {
         if(validateRoll($rollno) && validatePhone($phoneno) && validateAdress($adress) && validateName($name))
         {
       
-        $query = mysqli_query($conn, "UPDATE users SET name='$name',phoneno='$phoneno',rollno='$rollno',adress='$adress' WHERE   id ='".$user_id."'");
+        $query = mysqli_query($con, "UPDATE users SET name='$name',phoneno='$phoneno',rollno='$rollno',adress='$adress' WHERE   id ='".$user_id."'");
         if ($query)
         {
             echo(json_encode(array('status'=>'success','message' => 'Validation success')));
