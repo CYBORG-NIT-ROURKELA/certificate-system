@@ -7,10 +7,10 @@
      function get_data()
      {
 
-    $conn = mysqli_connect("localhost", "root","","userinfo");
+    $con = mysqli_connect("localhost", "root","","userinfo");
      $res="1";
      $app="0";
-    $query = mysqli_query($conn, "SELECT * FROM users WHERE request='$res'AND approval='$app'");
+    $query = mysqli_query($con, "SELECT * FROM users WHERE request='$res'AND approval='$app'");
     
     $data = array();
   
