@@ -7,7 +7,7 @@ include('db.php');
     	$user_id =$_POST['id'];
     	$app="1";
 
-    	$query = mysqli_query($conn, "UPDATE users SET approval='$app' WHERE  id ='".$user_id."'");
+    	$query = mysqli_query($con, "UPDATE users SET approval='$app' WHERE  id ='".$user_id."'");
 
     	 if ($query)
         {
