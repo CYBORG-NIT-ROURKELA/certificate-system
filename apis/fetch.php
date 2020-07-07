@@ -8,7 +8,7 @@
  	$user_id = $_SESSION['user_id'];
       $query = "SELECT * FROM users WHERE id = '".$user_id."'"; 
 
-      $result = mysqli_query($conn, $query);  
+      $result = mysqli_query($con, $query);  
       $row = mysqli_fetch_array($result);  
       echo json_encode($row);  
  }  
