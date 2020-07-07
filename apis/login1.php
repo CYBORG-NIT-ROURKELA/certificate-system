@@ -15,7 +15,7 @@
                 $user_id = $_SESSION['user_id'];
                 $basicInfo=[];
                 //basicInfo
-                $query = mysqli_query($conn, "SELECT * FROM users where id ='".$user_id."'");
+                $query = mysqli_query($con, "SELECT * FROM users where id ='".$user_id."'");
                 if (mysqli_num_rows($query) == 0) {
                     return json_encode(array('status' => 'failure', 'result' => 'user_id not found'));
                 } else {
