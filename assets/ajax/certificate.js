@@ -7,9 +7,9 @@ $(document).ready(function() {
             response = JSON.parse(response);
             if (response.status == "success") {
                 var request = response.result.request;
-                console.log(request);
+                // console.log(request);
                 var approval = response.result.approval;
-                console.log(approval)
+                // console.log(approval)
                 if (request == 0 && approval == 0) {
                     $('#status').html('Not requested');
                     $('#download').hide();
@@ -22,7 +22,7 @@ $(document).ready(function() {
                     $('#request').hide();
                 };
             } else {
-                console.log(response);
+                // console.log(response);
                 $('.status').html(response.result);
             }
         }
@@ -39,13 +39,13 @@ $('#request').click(() => {
             request: request
         },
         success: (response) => {
-            console.log(response.result);
+            // console.log(response.result);
             var response = JSON.parse(response);
             if (response.status == "success") {
                 var request = response.result.request;
-                console.log(request);
+                // console.log(request);
                 var approval = response.result.approval;
-                console.log(approval)
+                // console.log(approval)
                 if (request == 0 && approval == 0) {
                     $('#status').html('Not requested');
                     $('#download').hide();
@@ -59,7 +59,7 @@ $('#request').click(() => {
                 }
 
             } else {
-                console.log(response);
+                // console.log(response);
                 $('.status').html(response.result);
             }
         }
